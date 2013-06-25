@@ -975,7 +975,12 @@
         define('simplewebrtc', function() {
             return WebRTC;
         });
-    } else
+        define('wildemitter', function() {
+            window.WildEmitter = WildEmitter;
+        });
+    } else {
         window.WebRTC = WebRTC;
+        window.WildEmitter = WildEmitter;
+    }
     
 })(window)

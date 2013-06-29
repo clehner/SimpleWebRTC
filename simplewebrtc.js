@@ -341,6 +341,7 @@
 
         // our socket.io connection
         connection = this.connection = io.connect(this.config.url, {
+            'resource': this.config.resource || 'socket.io',
             'force new connection': true // otherwise the 2nd instance of WebRTC will fail to connect
         });
 

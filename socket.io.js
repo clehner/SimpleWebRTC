@@ -74,9 +74,11 @@ var io = ('undefined' === typeof module ? {} : module.exports);
 
     if (global && global.location) {
       uri.protocol = uri.protocol || global.location.protocol.slice(0, -1);
-      uri.host = uri.host || (global.document
-        ? global.document.domain : global.location.hostname);
-      uri.port = uri.port || global.location.port;
+      if (!uri.host) {
+        uri.host = (global.document
+          ? global.document.domain : global.location.hostname);
+        uri.port = uri.port || global.location.port;
+      }
     }
 
     uuri = io.util.uniqueUri(uri);
